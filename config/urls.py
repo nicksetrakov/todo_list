@@ -1,8 +1,17 @@
 from django.contrib import admin
 from django.urls import path, include
 
-from todo.views import TaskListView, TaskCreateView, TaskUpdateView, TaskDeleteView, TaskCompleteView, TagListView, \
-    TagCreateView, TagUpdateView, TagDeleteView
+from todo.views import (
+    TaskListView,
+    TaskCreateView,
+    TaskUpdateView,
+    TaskDeleteView,
+    TaskCompleteView,
+    TagListView,
+    TagCreateView,
+    TagUpdateView,
+    TagDeleteView
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
