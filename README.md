@@ -9,7 +9,7 @@ cd todo_list
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-pthon manage.py migrate
+python manage.py migrate
 python manage.py populate_fake_data
 python manage.py runserver
 ```
