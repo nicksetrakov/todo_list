@@ -35,3 +35,6 @@ class Task(models.Model):
         return super().save(
             *args, **kwargs
         )
+
+    def __str__(self) -> str:
+        return f"{self.content}"
