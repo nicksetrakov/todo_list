@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}
+	Tags
+{% endblock %}
+{% block content %}
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="mb-0">Tags</h1>
+    <a href="{% url 'tag-create' %}" class="btn btn-primary btn-lg link-to-page">Add</a>
+  </div>
+  {% include "includes/search_form.html" %}
+  <div class="card">
+    <div class="table-responsive">
+      {% if tag_list %}
+      <table class="table align-items-center mb-0">
+        <thead>
+          <tr>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Tag name</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Update</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for tag in tag_list %}
+          <tr>
+            <td>
+              <div class="d-flex px-2">
+                <div class="my-auto">
+                  <h6 class="mb-0 text-xs">#{{ tag }}</h6>
+                </div>
+              </div>
+            </td>
+            <td>
+              <a href="{% url 'tag-update' pk=tag.id %}">
+                <button type="button" class="btn btn-sm btn-primary me-2">Update</button>
+              </a>
+            </td>
+            <td>
+            <form action="{% url 'tag-delete' tag.pk %}" method="post" class="d-inline">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this task?')">Delete</button>
+            </form>
+            </td>
+          </tr>
+        {% endfor %}
+
+        </tbody>
+      </table>
+      {% else %}
+        <p>There are no tags in the service.</p>
+      {% endif %}
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a href="{% url 'task-list' %}" class="nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'tag-list' %}" class="nav-link {% if request.path == '/tags/' %}active{% endif %}" aria-current="page">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#tags"></use></svg>
+          Tags
+        </a>
+      </li>
+    </ul>
+    <hr>
+</div>
